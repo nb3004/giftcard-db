@@ -1,0 +1,255 @@
+::-webkit-input-placeholder {
+  /* Edge */
+  color: red;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: red;
+}
+
+::placeholder {
+  color: #aaa !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inter", sans-serif !important;
+  font-weight: 500 !important;
+  color: #069A78;
+  letter-spacing: -1px;
+}
+
+.h6 {
+  font-style: italic;
+  font-weight: 400 !important;
+}
+
+a {
+  color: #069A78 !important;
+}
+
+p {
+  font-size: 16px;
+  color: #069A78;
+}
+
+.lightgrey {
+  color: #aaa !important;
+}
+
+.leaflet-popup-content p {
+  margin: 18px 0px 16px !important;
+  font-size: 14px;
+}
+
+.leaflet-container a,
+.fixed-bottom-right {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+}
+
+.linkfixed {
+  position: absolute;
+  bottom: 5px;
+  left: 8px;
+  z-index: 9999;
+  font-size: 14px;
+}
+
+i span{
+	font-weight: 400;
+	font-size: 18px;
+}
+
+label {
+  color: #069A78;
+}
+
+nav.navbar {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 9999;
+}
+
+.navbar-brand {
+  margin-left: 0px;
+  font-weight: 500;
+  font-size: 54px;
+  line-height: 48px;
+  color: #069A78 !important;
+  white-space: normal !important;
+  font-family: "Inter", sans-serif;
+  font-size: 36px !important;
+  line-height: 44px;
+  letter-spacing: 1px;
+  font-style: normal;
+}
+
+.btn-primary {
+  background-color: #069A78 !important;
+  border-radius: 100px;
+  padding: 10px 25px 10px 25px !important;
+  color: #fff !important;
+  font-weight: 900;
+  border: none;
+}
+
+.btn-primary:hover {
+}
+
+.btn-secondary {
+  background-color: #fff !important;
+  border: 5px solid #069A78;
+  border-radius: 100px;
+  padding: 5px 15px 5px 15px !important;
+  color: #0000ee !important;
+  font-weight: 900;
+}
+
+.nav-item .btn {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.btn-sm {
+  padding: 3px 13px !important;
+}
+
+.bg-light {
+  background-color: transparent !important;
+}
+
+.listings {
+  position: absolute;
+  right: 0px;
+  padding-top: 80px;
+  padding-bottom: 150px;
+  z-index: 999;
+  height: 98vh;
+  overflow-y: auto;
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    left 80%,
+    left bottom,
+    from(rgba(0, 0, 0, 1)),
+    to(rgba(0, 0, 0, 0))
+  );
+}
+
+span.label {
+  text-transform: uppercase;
+  font-size: 12px;
+  width: 100%;
+  display: block;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  margin-left: 0px;
+  padding-left: 0px;
+  color: #0000ee !important;
+  font-size: 16px;
+
+  li {
+    padding-right: 20px;
+    line-height: 18px;
+  }
+}
+
+.list-group-item {
+  margin-bottom: 10px;
+  padding: 15px 25px !important;
+  box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.2) !important;
+  
+  p {
+    color: red;
+  }
+}
+
+.leaflet-popup-content-wrapper{
+	box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.3) !important;
+}
+
+/*------POPOVER SYTLES-----------*/
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0px !important;
+  padding: 10px;
+}
+
+.leaflet-popup-content {
+  min-width: 280px;
+}
+
+a.leaflet-popup-close-button {
+  width: 21px !important;
+  height: 35px !important;
+  padding: 10px 30px 33px 20px !important;
+  font: 22px/14px Tahoma, Verdana, sans-serif !important;
+  color: #c3c3c3;
+}
+
+/*------MEDIA QUERIES-----------*/
+
+@media only screen and (max-width: 764px) {
+  .listings {
+    position: absolute;
+    right: 0px;
+    top: 60vh;
+    padding-top: 0px;
+    z-index: 999;
+    height: 40vh;
+    overflow-y: auto;
+  }
+
+  .navbar-brand {
+    font-size: 48px !important;
+    line-height: 44px;
+    line-height: 32px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 5px 160px 0px 0px;
+  }
+
+  .btn-primary.small {
+    border-radius: 100px;
+    padding: 5px 13px !important;
+    color: #fff !important;
+    font-weight: 900;
+    font-size: 14px;
+  }
+
+  .btn-secondary.small {
+    padding: 2px 10px !important;
+    color: #0000ee !important;
+    font-weight: 900;
+    font-size: 14px;
+  }
+
+  .linkfixed {
+    position: absolute;
+    bottom: 5px;
+    left: 8px;
+    z-index: 9999;
+    font-size: 14px;
+    opacity: .8;
+  }
+}
+
+.text-blue {
+  color: #ff00ff;
+}
+
+.font-nunito {
+  font-family: "Nunito", sans-serif !important;
+}
