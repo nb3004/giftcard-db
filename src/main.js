@@ -6,11 +6,6 @@ import { BootstrapVue } from "bootstrap-vue";
 
 import DefaultLayout from "~/layouts/Default.vue";
 
-// Add fonts
-require("typeface-dosis");
-require("typeface-maven-pro");
-require("typeface-nunito");
-
 const siteUrl = "https://.com/";
 const siteName = "Buffalo Gift Card Database";
 const metaImage = siteUrl + "meta/meta-img.png";

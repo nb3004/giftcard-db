@@ -32,7 +32,6 @@
               ></b-form-input>
             </b-form-group>
             <div class="row">
-
               <div class="col-6">
                 <b-form-group label="Stage" label-for="stage">
                   <b-form-select
@@ -98,12 +97,16 @@
                 happy. Now, submit your Startup already.
               </p>
               <br />
-              <a class="lightgrey" href="https://www.helmux.com/work" target="_blank">
-	              Built with &#x2665;
-	          </a>
-              <br/>
-              <br/>
-              <br/>
+              <a
+                class="lightgrey"
+                href="https://www.helmux.com/work"
+                target="_blank"
+              >
+                Built with &#x2665;
+              </a>
+              <br />
+              <br />
+              <br />
               <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLScA9hirfSieN7Wii81gPZGP3_zvJAzg9K4Ye51MTT9M8-Ybmg/viewform?usp=sf_link"
                 target="_blank"
@@ -119,8 +122,6 @@
 </template>
 
 <script>
-import VueScript2 from "vue-script2";
-
 export default {
   metaInfo: {
     title: "About"
@@ -146,7 +147,7 @@ export default {
         "Entertainment",
         "Museums",
         "Clothing",
-        "Furniture",
+        "Furniture"
       ],
       loading: false
     };
