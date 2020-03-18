@@ -3,7 +3,9 @@
     <b-navbar class="navbar navbar-expand-sm navbar-light bg-light px-0">
       <b-container>
         <g-link class="navbar-brand" to="/">Buffalo Gift Card Database</g-link>
-        <g-link class="nav-link btn btn-secondary tealGreen" to="/">Cancel</g-link>
+        <g-link class="nav-link btn btn-secondary tealGreen" to="/"
+          >Cancel</g-link
+        >
       </b-container>
     </b-navbar>
 
@@ -12,7 +14,8 @@
         <b-col class="col-md-6 offset-md-3 mt-5 pt-5 pb-4">
           <h1 class="mt-5">Add your local business</h1>
           <p>
-            List your local business and add a link to purchase gift cards or order take-out.
+            List your local business and add a link to purchase gift cards or
+            order take-out.
           </p>
         </b-col>
       </b-row>
@@ -28,34 +31,20 @@
                 autofocus
               ></b-form-input>
             </b-form-group>
-            <div class="row">
-              <div class="col-6">
-                <b-form-group label="Stage" label-for="stage">
-                  <b-form-select
-                    id="stage"
-                    v-model="form.stage"
-                    :options="stages"
-                    required
+            <b-form-group label="Business Type" label-for="type">
+              <b-form-select
+                id="type"
+                v-model="form.type"
+                :options="types"
+                required
+              >
+                <template v-slot:first>
+                  <b-select-option :value="null" disabled
+                    >-- Select a Type --</b-select-option
                   >
-                    <template v-slot:first>
-                      <b-select-option :value="null" disabled=""
-                        >-- Select a Stage --</b-select-option
-                      >
-                    <b-select-option :value="Restaurant"
-                        >Restaurant</b-select-option
-                      >
-                        <b-select-option :value="Art"
-                        >Arts &amp; Entertainment</b-select-option
-                      >
-                      <b-select-option :value="Retail"
-                        >Retail</b-select-option
-                      >
-                        
-                    </template>
-                  </b-form-select>
-                </b-form-group>
-              </div>
-            </div>
+                </template>
+              </b-form-select>
+            </b-form-group>
             <b-form-group label="Gift Cards" label-for="website">
               <b-form-input
                 id="website"
@@ -108,7 +97,8 @@
               <p class="lightgrey">
                 By clicking Submit you agree that the information listed above
                 is true to the best of your knowledge. You're also saying it's
-                cool if we email you. We won't spam you so don't worry, we just want to help local businesses.
+                cool if we email you. We won't spam you so don't worry, we just
+                want to help local businesses.
               </p>
               <br />
               <a
@@ -142,7 +132,6 @@ export default {
   },
   data() {
     return {
-      validation: null,
       url:
         "https://script.google.com/macros/s/AKfycbwlb0OuUE_0_1xUtIAsUgJk5gKdHCbvQRMVcx10W6BhroY8i1lP/exec",
       form: {
@@ -151,12 +140,17 @@ export default {
         description: "",
         address: "",
         amounts: "",
-        stage: null,
-        type: "",
+        type: null,
         page_url: "",
         logo: "",
         color: ""
       },
+      types: [
+        "Restaurant",
+        "Arts & Entertainment",
+        "Retail",
+        "I don't see an appropriate type here"
+      ],
       saving: false
     };
   },
@@ -169,12 +163,6 @@ export default {
       });
     },
     sendFormData() {
-      this.gtmTrackFormSubmit();
-      if (!Object.keys(this.form.address).length) {
-        this.$refs.address.focus();
-        // this.validation = false;
-        return;
-      }
       this.loading = true;
       fetch(this.url, {
         method: "POST",
@@ -188,47 +176,6 @@ export default {
           path: "/thanks"
         });
       });
-    },
-    getAddressValues(autocomplete) {
-      var place = autocomplete.getPlace();
-      for (var i = 0; i < place.address_components.length; i++) {
-        var key = place.address_components[i].types[0];
-        this.form.address[key] = place.address_components[i].long_name;
-        this.form.lat = place.geometry.location.lat();
-        this.form.lng = place.geometry.location.lng();
-      }
-    },
-    initAutocomplete() {
-      var self = this;
-      VueScript2.load(
-        `https://maps.googleapis.com/maps/api/js?key=${"AIzaSyC2tSkbaL8SIQsSQGlIsQZXn-wHBD3z-Rs"}&libraries=places`
-      ).then(function() {
-        var autocomplete = new google.maps.places.Autocomplete(
-          document.getElementById("autocomplete"),
-          { types: ["geocode"] }
-        );
-        autocomplete.setFields(["address_component", "geometry"]);
-        autocomplete.addListener("place_changed", function() {
-          self.getAddressValues(autocomplete);
-          self.validation = null;
-        });
-      });
-    }
-  },
-  mounted() {
-    let self = this;
-    this.initAutocomplete();
-    document
-      .getElementById("autocomplete")
-      .addEventListener("input", function() {
-        self.form.address = {};
-      });
-  },
-  computed: {
-    dataToArray() {
-      return Object.keys(this.form).map(key =>
-        key == "address" ? JSON.stringify(this.form[key]) : this.form[key]
-      );
     }
   }
 };
