@@ -31,13 +31,18 @@
                   >
                     <div class="embed-responsive embed-responsive-21by9">
                       <div
-                        class="embed-responsive-item d-flex align-items-center"
+                        class="embed-responsive-item d-flex align-items-center justify-content-center"
                       >
-                        <b-img-lazy
-                          class="w-100 h-auto"
-                          src="https://placekitten.com/300/100"
+                        <b-img
+                          v-if="form.logoUrl"
+                          class="w-auto h-auto"
+                          :src="form.logoUrl"
                           :alt="form.name ? form.name : 'Add a business name'"
-                        />
+                          style="max-width: 100%; max-height: 100%;"
+                        ></b-img>
+                        <div v-else>
+                          <span class="text-white">Upload a Logo</span>
+                        </div>
                       </div>
                     </div>
                   </b-card-header>
@@ -51,6 +56,16 @@
                           ? form.description
                           : "Write a description"
                       }}
+                    </b-card-text>
+                    <b-card-text>
+                      Amounts
+                      <ul>
+                        <template v-for="(amount, idx) in form.amounts.length">
+                          <li v-if="form.amounts[idx]" :key="idx">
+                            {{ form.amounts[idx] }}
+                          </li>
+                        </template>
+                      </ul>
                     </b-card-text>
                     <b-button
                       block
@@ -75,8 +90,17 @@
                   ></b-form-input>
                 </b-form-group>
 
-                <b-form-group label="Upload a logo" label-for="file-default">
-                  <b-form-file id="file-default"></b-form-file>
+                <b-form-group
+                  label="Upload a logo"
+                  label-for="logoUrl"
+                  description="Must be .jpg or .png"
+                >
+                  <b-form-file
+                    id="logoUrl"
+                    placeholder="Choose a file or drop it here..."
+                    accept=".jpg, .png"
+                    @change="getImageUpload"
+                  ></b-form-file>
                 </b-form-group>
 
                 <b-form-group label="Select a color" label-for="color">
@@ -112,17 +136,17 @@
                     ></b-form-input>
                     <b-input-group-append>
                       <b-button
-                        v-if="form.amounts.length > 1"
-                        variant="info"
+                        :disabled="form.amounts.length < 2"
+                        variant="danger"
                         @click="removeAmount(idx)"
                         >Remove</b-button
                       >
                     </b-input-group-append>
                   </b-input-group>
+                  <b-button variant="primary" @click="addAmount()">
+                    Add Amount
+                  </b-button>
                 </b-form-group>
-                <b-button variant="primary" @click="addAmount()">
-                  Add Amount
-                </b-button>
                 <b-form-group
                   label="Add a link to the gift card page"
                   label-for="pageUrl"
@@ -183,13 +207,21 @@ export default {
         amounts: [""],
         type: "",
         pageUrl: "",
-        logo: "",
-        color: "#222222"
+        logoUrl: null,
+        color: "#222222",
+        logoUrl: ""
       },
       saving: false
     };
   },
   methods: {
+    getImageUpload(e) {
+      const reader = new FileReader();
+      reader.onload = e => {
+        this.form.logoUrl = e.target.result;
+      };
+      reader.readAsDataURL(e.target.files[0]);
+    },
     addAmount() {
       this.form.amounts.push("");
     },
@@ -207,7 +239,6 @@ export default {
       this.gtmTrackFormSubmit();
       if (!Object.keys(this.form.address).length) {
         this.$refs.address.focus();
-        // this.validation = false;
         return;
       }
       this.loading = true;
