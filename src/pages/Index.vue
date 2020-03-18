@@ -2,15 +2,63 @@
   <Layout>
     <b-navbar class="navbar navbar-expand-sm navbar-light bg-light px-0">
       <b-container>
-        <g-link class="navbar-brand" to="/">Buffalo Gift Card Database</g-link>
         <g-link class="nav-link btn btn-primary" to="/about"
           >Add Your Local Business</g-link
         >
       </b-container>
     </b-navbar>
-
-    <b-container class="vh-100">
+      
+    <b-container>
       <b-row>
+        <b-col cols="12" class="text-center hero">
+          
+          <g-link class="navbar-brand" to="/">Buffalo Gift Card Database</g-link>
+          <p>Lorem Ipsum</p>
+            
+          </b-col>
+        </b-row>
+      </b-container>
+
+      
+    <b-container class="padding-50">
+      <b-row>
+        <b-col cols="4" class="text-center ">
+        
+            <a class="nav-link btn btn-secondary" href="#">Restaurant</a>
+
+        </b-col>
+          
+        <b-col cols="4" class="text-center ">
+        
+            <a class="nav-link btn btn-secondary" href="#">Arts &amp; Entertainment</a>
+
+        </b-col>
+          
+        <b-col cols="4" class="text-center ">
+        
+            <a class="nav-link btn btn-secondary" href="#">Retail</a>
+
+        </b-col>          
+    </b-row>      
+    <b-row>
+        <b-col cols="3"></b-col>
+        <b-col cols="3" class="text-center ">
+        
+            <a class="nav-link btn btn-secondary" href="#">Gift Cards</a>
+
+        </b-col>
+          
+        <b-col cols="3" class="text-center">
+        
+            <a class="nav-link btn btn-secondary" href="#">Take Out</a>
+
+        </b-col>   
+        
+    </b-row> 
+    </b-container>
+    
+    <b-container class="padding-50">    
+    <b-row>
         <b-col cols="4" v-for="(business, idx) in businesses" :key="idx">
           <b-card no-body class="mb-2">
             <b-card-header
