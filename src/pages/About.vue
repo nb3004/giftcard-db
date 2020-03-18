@@ -82,9 +82,9 @@
                 type="submit"
                 variant="primary"
                 class="mt-3 mb-5"
-                :disabled="loading"
+                :disabled="saving"
               >
-                <span v-if="loading">
+                <span v-if="saving">
                   <b-spinner small></b-spinner>
                   Saving...
                 </span>
@@ -130,26 +130,20 @@ export default {
     return {
       validation: null,
       url:
-        "https://script.google.com/macros/s/AKfycbyvH8XfNF_skvR011XKIgKwSS25Ks5GsBWkpHSIzcsfaJ1MrW0/exec",
+        "https://script.google.com/macros/s/AKfycbwlb0OuUE_0_1xUtIAsUgJk5gKdHCbvQRMVcx10W6BhroY8i1lP/exec",
       form: {
         email: "",
-        company: "",
+        business_name: "",
         description: "",
-        address: {},
-        lng: "",
-        lat: "",
+        address: "",
+        amounts: "",
         stage: null,
-        category: ""
+        type: "",
+        page_url: "",
+        logo: "",
+        color: ""
       },
-      stages: [
-        "n/a",
-        "Restaurant",
-        "Entertainment",
-        "Museums",
-        "Clothing",
-        "Furniture"
-      ],
-      loading: false
+      saving: false
     };
   },
   methods: {

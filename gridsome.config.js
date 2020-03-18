@@ -12,7 +12,7 @@ module.exports = {
   titleTemplate: "%s - Buffalo Gift Card Database",
   plugins: [
     {
-      use: '@gridsome/plugin-sitemap',
+      use: "@gridsome/plugin-sitemap"
     },
     {
       use: "gridsome-plugin-gtm",
@@ -25,14 +25,14 @@ module.exports = {
     {
       use: "gridsome-source-google-sheets",
       options: {
-        apiKey: "AIzaSyC2tSkbaL8SIQsSQGlIsQZXn-wHBD3z-Rs",
+        apiKey: "AIzaSyAMBaBI_VtuVPtDH9CStL32TGV3_tZlClA",
         spreadsheets: [
           {
-            spreadsheetId: "1wRHZFMaWjRbL2G2SwwMHrAXhCcUraNeutrT6OpOM8BQ",
+            spreadsheetId: "1QsdesVTD1qkkshGfZvw9UFiwNjiH_5Ii5XA_vudSwro",
             sheets: [
               {
                 sheetName: "Sheet1",
-                collectionName: "places"
+                collectionName: "businesses"
               }
             ]
           }
