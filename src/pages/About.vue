@@ -1,16 +1,13 @@
 <template>
   <Layout>
-    <b-container>
-      <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <b-navbar class="navbar navbar-expand-sm navbar-light bg-light px-0">
+      <b-container>
         <g-link class="navbar-brand" to="/">Buffalo Gift Card Database</g-link>
-        <ul class="nav navbar-nav">
-          <li class="nav-item">
-            <g-link class="nav-link btn btn-secondary small" to="/"
-              >Cancel</g-link
-            >
-          </li>
-        </ul>
-      </nav>
+        <g-link class="nav-link btn btn-secondary" to="/">Cancel</g-link>
+      </b-container>
+    </b-navbar>
+
+    <b-container>
       <b-row>
         <b-col class="col-md-6 offset-md-3 mt-5 pt-5 pb-4">
           <h1 class="mt-5">Add a local business</h1>

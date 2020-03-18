@@ -1,5 +1,14 @@
 <template>
   <Layout>
+    <b-navbar class="navbar navbar-expand-sm navbar-light bg-light px-0">
+      <b-container>
+        <g-link class="navbar-brand" to="/">Buffalo Gift Card Database</g-link>
+        <g-link class="nav-link btn btn-primary" to="/about"
+          >Add Your Local Business</g-link
+        >
+      </b-container>
+    </b-navbar>
+
     <b-container class="vh-100">
       <b-row>
         <b-col cols="4" v-for="(business, idx) in businesses" :key="idx">
