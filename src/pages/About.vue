@@ -3,16 +3,16 @@
     <b-navbar class="navbar navbar-expand-sm navbar-light bg-light px-0">
       <b-container>
         <g-link class="navbar-brand" to="/">Buffalo Gift Card Database</g-link>
-        <g-link class="nav-link btn btn-secondary" to="/">Cancel</g-link>
+        <g-link class="nav-link btn btn-secondary tealGreen" to="/">Cancel</g-link>
       </b-container>
     </b-navbar>
 
     <b-container>
       <b-row>
         <b-col class="col-md-6 offset-md-3 mt-5 pt-5 pb-4">
-          <h1 class="mt-5">Add a local business</h1>
+          <h1 class="mt-5">Add your local business</h1>
           <p>
-            Enter the local business to add them on the list!
+            List your local business and add a link to purchase gift cards or order take-out.
           </p>
         </b-col>
       </b-row>
@@ -41,6 +41,7 @@
                       <b-select-option :value="null" disabled=""
                         >-- Select a Stage --</b-select-option
                       >
+                 
                     </template>
                   </b-form-select>
                 </b-form-group>
@@ -54,12 +55,20 @@
                 placeholder="Gift Card Link... "
               ></b-form-input>
             </b-form-group>
+            <b-form-group label="Take Out" label-for="website">
+              <b-form-input
+                id="takeOut"
+                v-model="form.website"
+                required
+                placeholder="Take Out / Delivery Link... "
+              ></b-form-input>
+            </b-form-group>
             <b-form-group label="Description" label-for="description">
               <b-form-textarea
                 id="description"
                 v-model="form.description"
                 required
-                placeholder="Briefly describe the startup..."
+                placeholder="Explain how people can help your business during this difficult time..."
                 rows="3"
                 no-resize
               ></b-form-textarea>
@@ -90,8 +99,7 @@
               <p class="lightgrey">
                 By clicking Submit you agree that the information listed above
                 is true to the best of your knowledge. You're also saying it's
-                cool if we email you. We won't spam you so don't worry, be
-                happy. Now, submit your Startup already.
+                cool if we email you. We won't spam you so don't worry, we just want to help local businesses.
               </p>
               <br />
               <a
@@ -99,7 +107,7 @@
                 href="https://www.helmux.com/work"
                 target="_blank"
               >
-                Built with &#x2665;
+                Built with &#x2665; by Helm Experience &amp; Design
               </a>
               <br />
               <br />

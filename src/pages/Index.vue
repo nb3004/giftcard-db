@@ -15,19 +15,10 @@
           <b-card no-body class="mb-2">
             <b-card-header
               :style="{
-                backgroundColor: business.color ? business.color : '#222222'
+                backgroundColor: business.color ? business.color : '#069A78'
               }"
               header-tag="header"
             >
-              <div class="embed-responsive embed-responsive-21by9">
-                <div class="embed-responsive-item d-flex align-items-center">
-                  <b-img-lazy
-                    class="w-100 h-auto"
-                    src="https://placekitten.com/300/100"
-                    :alt="business.name"
-                  />
-                </div>
-              </div>
             </b-card-header>
             <b-card-body>
               <b-card-title>
@@ -36,16 +27,13 @@
               <b-card-text>
                 {{ business.description }}
               </b-card-text>
-              <b-button block :href="business.pageUrl" variant="primary"
-                >Purchase Giftcard</b-button
-              >
+                <b-button block :href="business.pageUrl" variant="primary">Gift Cards</b-button>
+                <b-button block :href="business.pageUrl" variant="primary">Takeout / Delivery</b-button>
             </b-card-body>
           </b-card>
         </b-col>
       </b-row>
-      <a class="" href="https://www.helmux.com/work" target="_blank"
-        >Built with &#x2665;</a
-      >
+            <a class="text-center" href="https://www.helmux.com/work" target="_blank">Built with &#x2665; by Helm Experience &amp; Design</a>
     </b-container>
   </Layout>
 </template>
@@ -57,14 +45,11 @@ query {
       node {
         id,
         email,
-        business_name,
+        name,
         description,
         address,
-        page_url,
-        type,
-        amounts,
-        logo_url,
-        color
+        gift_url,
+        takeout_url
       }
     }
   }
@@ -82,16 +67,17 @@ export default {
       return this.$page.businesses.edges.map(business => {
         var node = business.node;
         return {
-          name: node.business_name,
+          name: node.name,
           description: node.description,
           address: node.address,
           amounts: node.amounts ? JSON.parse(node.amounts) : null,
           type: node.type,
-          logoUrl: node.logo_url,
-          color: node.color,
-          pageUrl: new RegExp("^https?://").test(node.page_url)
-            ? node.page_url
-            : "http://" + node.page_url
+          gift_url: new RegExp("^https?://").test(node.gift_url)
+            ? node.gift_url
+            : "http://" + node.gift_url,
+          takeout_url: new RegExp("^https?://").test(node.takeout_url)
+            ? node.takeout_url
+            : "http://" + node.takeout_url,
         };
       });
     }
