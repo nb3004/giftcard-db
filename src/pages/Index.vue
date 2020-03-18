@@ -1,8 +1,8 @@
 <template>
   <Layout>
-    <b-container fluid class="vh-100">
+    <b-container class="vh-100">
       <b-row>
-        <b-col cols="3" v-for="(business, idx) in businesses" :key="idx">
+        <b-col cols="4" v-for="(business, idx) in businesses" :key="idx">
           <b-card no-body class="mb-2">
             <b-card-header
               :style="{
@@ -10,7 +10,15 @@
               }"
               header-tag="header"
             >
-              <img src="https://placekitten.com/300/100" :alt="business.name" />
+              <div class="embed-responsive embed-responsive-21by9">
+                <div class="embed-responsive-item d-flex align-items-center">
+                  <b-img-lazy
+                    class="w-100 h-auto"
+                    src="https://placekitten.com/300/100"
+                    :alt="business.name"
+                  />
+                </div>
+              </div>
             </b-card-header>
             <b-card-body>
               <b-card-title>
