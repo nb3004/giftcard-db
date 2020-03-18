@@ -41,7 +41,16 @@
                       <b-select-option :value="null" disabled=""
                         >-- Select a Stage --</b-select-option
                       >
-                 
+                    <b-select-option :value="Restaurant"
+                        >Restaurant</b-select-option
+                      >
+                        <b-select-option :value="Art"
+                        >Arts &amp; Entertainment</b-select-option
+                      >
+                      <b-select-option :value="Retail"
+                        >Retail</b-select-option
+                      >
+                        
                     </template>
                   </b-form-select>
                 </b-form-group>
